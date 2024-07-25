@@ -4,21 +4,17 @@ import { useSelector } from "react-redux";
 
 const MovieTrailerComponent = ({ id }) => {
   const key = useSelector((store) => store.movies.atNowTrailer);
-  console.log(key);
   useMoviesTrailer(id);
-  console.log(id);
   return (
     <div>
-      <iframe
+       <iframe
         className="w-screen h-svh"
-        width="560"
-        height="315"
-        src={`https://www.youtube.com/embed/${key}?&autoplay=1&mute=1 `} 
+        src={`https://www.youtube.com/embed/${key}?autoplay=1&mute=1&loop=1&playlist=${key}&controls=0&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&disablekb=1`} 
         title="YouTube video player"
-        frameborder="0"
+        frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
       ></iframe>
     </div>
   );
