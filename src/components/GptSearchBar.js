@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import openai from "../utils/openai"
 import { API_OPTIONS } from "../utils/constants";
 import { useDispatch } from 'react-redux';
 import { addResults } from '../utils/gptSlice';
