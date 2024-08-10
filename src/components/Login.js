@@ -78,14 +78,14 @@ const Login = () => {
   return (
     <div className="min-h-screen bg-gray-900">
       <Header />
+      <div className="absolute inset-0 flex items-center justify-center">
       <img
-        className="inset-0 w-full h-full object-cover opacity-50"
+        className="absolute sm:w-full sm:h-full h-lvh w-lvw "
         src="https://assets.nflxext.com/ffe/siteui/vlv3/51c1d7f7-3179-4a55-93d9-704722898999/be90e543-c951-40d0-9ef5-e067f3e33d16/IN-en-20240610-popsignuptwoweeks-perspective_alpha_website_small.jpg"
         alt="Background"
       />
-      <div className="absolute inset-0 flex items-center justify-center">
         <form
-          className="bg-black bg-opacity-75 p-8 rounded-lg shadow-md space-y-6 w-80"
+          className=" z-10 bg-black bg-opacity-75 p-8 rounded-lg shadow-md space-y-6 w-80 top-32 absolute"
           onSubmit={validate}
         >
           <h2 className="text-2xl font-bold text-white mb-4">

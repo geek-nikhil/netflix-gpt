@@ -11,13 +11,13 @@ const MovieList = ({ title, movies }) => {
 
   return (
     <>
-    <div className='-mt-28 relative'>
-        <div className='mb-40 z-50'>
-        <h2 className='text-white font-semibold text-2xl'>{title}</h2>
+    <div className='relative'>
+        <div className='z-50'>
+        <h2 className='text-white font-semibold text-2xl ml-4'>{title}</h2>
       <div className='overflow-x-scroll no-scrollbar '>
-      <div className='flex space-x-6'>
+      <div className='flex space-x-6 mb-8 ml-4'>
         {movieList.map((movie) => (
-            <div className='w-60 flex-shrink-0'>
+            <div className='sm:w-60 w-28 sm:h-full flex-shrink-0'>
           <MovieCard movie={movie} /> 
       </div>
         ))}

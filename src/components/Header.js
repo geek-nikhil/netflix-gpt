@@ -7,11 +7,19 @@ import  { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addUsers, removeUsers} from "../utils/userSlice";
 import { LOGO } from "../utils/constants";
+import { toggleGptSearchView } from "../utils/gptSlice";
 const Header = () => {
   const dispatch = useDispatch();
   const user = useSelector(store => store.user);
+  const gptSearchVi = useSelector(store => store.GptSearch.gptSearchView);
   const auth = getAuth();
   const navigate = useNavigate();
+ 
+  const ToggleGptSearchView = () =>{
+    dispatch(toggleGptSearchView(!gptSearchVi))
+  }
+
+
   const HandleSignout = () => {
     signOut(auth)
       .then(() => {
@@ -42,27 +50,30 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="absolute flex justify-between items-center w-full px-8 py-2 bg-transparent z-10">
+    <>
+    <div className="absolute sm:flex justify-between items-center w-full z-20 ">
       <img
-        className="w-40 p-2"
+        className="sm:w-40 w-32 "
         src={LOGO}
         alt="Netflix Logo"
       />
       {user && (
       <div className="flex items-center">
+        <button className="text-white sm:p-2 p-1 bg-slate-700 rounded sm:relative relative md:top-2  -right-80 md:right-10" onClick={ToggleGptSearchView}>GptSearch</button>
         <img
-          className="w-10 h-10 rounded-full"
+          className="w-10 h-10 rounded-full sm:relative md:top-2 md:right-8 top-2 absolute right-24"
           alt="User Avatar"
           src={user.photoURL}
         />
         <button
-          className="ml-4 px-4 py-2 bg-red-600 text-white rounded"
+          className="mr-2 bg-red-600 p-1 text-white rounded sm:relative sm:top-1 absolute top-3 right-5"
           onClick={HandleSignout}>
           Sign out
         </button>
       </div>
       )}
     </div>
+    </>
   );
 };
 
